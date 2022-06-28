@@ -89,6 +89,8 @@ blipClient.sendMessage({ \
       .replacingOccurrences(of: Constants.CUSTOM_MESSAGE_METADATA, with: self.options.customMetadata)
       .replacingOccurrences(of: Constants.SEND_MESSAGE, with: sendMessage);
 
+    print("BLiP Chat - HTML code \(html)")
+
     self.webView.load(URLRequest(url:URL(string:Constants.BLIP_BLANK_PAGE)!))
     baseUrl = URL(string: "https://\(Bundle.main.bundleIdentifier!.lowercased())/")
 

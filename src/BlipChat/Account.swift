@@ -19,28 +19,18 @@ import Foundation
   @objc public var gender: String?
   @objc public var group: String?
   @objc public var taxDocument: String?
+  @objc public var timezone: NSNumber?
   @objc public var culture: String?
   @objc public var extras: [String: String]?
   @objc public var password: String?
   @objc public var oldPassword: String?
   @objc public var inboxSize: NSNumber?
 
-  private var timezoneInt: Int32?
   private var isTemporaryBool: Bool?
   private var allowGuestSenderBool: Bool?
   private var allowUnknownSenderBool: Bool?
   private var storeMessageContentBool: Bool?
   private var encryptMessageContentBool: Bool?
-
-  @objc public var timezone: NSNumber {
-    get {
-      return NSNumber(value: timezoneInt ?? 0)
-    }
-
-    set(newValue) {
-      timezoneInt = newValue.int32Value
-    }
-  }
 
   @objc public var isTemporary: Bool {
     get {
@@ -114,6 +104,7 @@ import Foundation
     case extras
     case password
     case oldPassword
+    case inboxSize
 
     case isTemporary
     case allowGuestSender
@@ -139,8 +130,9 @@ import Foundation
     if extras != nil { try container.encode(extras, forKey: .extras) }
     if password != nil { try container.encode(password, forKey: .password) }
     if oldPassword != nil { try container.encode(oldPassword, forKey: .oldPassword) }
+    if timezone != nil { try container.encode(timezone?.int16Value, forKey: .timezone) }
+    if inboxSize != nil { try container.encode(inboxSize?.int16Value, forKey: .inboxSize) }
 
-    if timezoneInt != nil { try container.encode(timezoneInt, forKey: .timezone) }
     if isTemporaryBool != nil { try container.encode(isTemporaryBool, forKey: .isTemporary) }
     if allowGuestSenderBool != nil { try container.encode(allowGuestSenderBool, forKey: .allowGuestSender) }
     if allowUnknownSenderBool != nil { try container.encode(allowUnknownSenderBool, forKey: .allowUnknownSender) }
