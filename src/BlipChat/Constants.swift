@@ -9,18 +9,19 @@
 import Foundation
 
 internal class Constants{
-    public static let BLIP_SDK_URL = "https://unpkg.com/blip-chat-widget"
-    public static let IFRAME_URL = "https://chat.blip.ai/"
-    
-    //Keys
-    public static let API_KEY_VAR_KEY = "%appKey%"
-    public static let AUTHCONFIG_VAR_KEY = "%authConfig%";
-    public static let ACCOUNT_VAR_KEY = "%account%";
-    public static let IFRAME_URL_KEY = "%iframeUrl%"
-    public static let SCRIPT_SDK_URL_KEY = "%scriptSdkUrl%"
-    public static let CUSTOM_COMMON_URL_KEY = "%customCommonUrl%"
-    public static let CONNECTION_DATA_KEY = "%connectionData%"
-    
-    public static let BLIP_BLANK_PAGE = "BlipBlankPage"
+  public static let BLIP_SDK_URL = "https://unpkg.com/blip-chat-widget"
+  public static let IFRAME_URL = "https://chat.blip.ai/"
 
+  //Keys
+  public static let API_KEY_VAR_KEY = "%appKey%"
+  public static let AUTHCONFIG_VAR_KEY = "%authConfig%";
+  public static let ACCOUNT_VAR_KEY = "%account%";
+  public static let IFRAME_URL_KEY = "%iframeUrl%"
+  public static let SCRIPT_SDK_URL_KEY = "%scriptSdkUrl%"
+  public static let CUSTOM_COMMON_URL_KEY = "%customCommonUrl%"
+  public static let CONNECTION_DATA_KEY = "%connectionData%"
+  public static let SEND_MESSAGE = "%sendMessage%"
+  public static let CUSTOM_MESSAGE_METADATA = "%customMessageMetadata%"
+
+  public static let BLIP_BLANK_PAGE = "BlipBlankPage"
 }

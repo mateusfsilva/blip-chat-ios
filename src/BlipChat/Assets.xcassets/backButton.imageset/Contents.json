@@ -1,23 +1,23 @@
 {
   "images" : [
     {
+      "filename" : "backButton.png",
       "idiom" : "universal",
-      "filename" : "leftArrow-2.png",
       "scale" : "1x"
     },
     {
+      "filename" : "backButton-1.png",
       "idiom" : "universal",
-      "filename" : "leftArrow.png",
       "scale" : "2x"
     },
     {
+      "filename" : "backButton-2.png",
       "idiom" : "universal",
-      "filename" : "leftArrow-1.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

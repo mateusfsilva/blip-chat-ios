@@ -7,20 +7,21 @@
 //
 
 import Foundation
-enum BlipErrors: LocalizedError{
-    case emptyApiKey
-    case emptyCredentials
-    case emptyNoNavController
 
-    var errorDescription: String?{
-        switch self {
-            case .emptyApiKey:
-                return "ApiKey can't be empty"
-            case .emptyCredentials:
-                return "UserIdentifier and UserPassword must be defined for Dev authentication"
-            case .emptyNoNavController:
-                return "No Navigation Controller found"
-            
-        }
+enum BlipErrors: LocalizedError{
+  case emptyApiKey
+  case emptyCredentials
+  case emptyNoNavController
+
+  var errorDescription: String?{
+    switch self {
+      case .emptyApiKey:
+        return "ApiKey can't be empty"
+      case .emptyCredentials:
+        return "UserIdentifier and UserPassword must be defined for Dev authentication"
+      case .emptyNoNavController:
+        return "No Navigation Controller found"
+
     }
+  }
 }
