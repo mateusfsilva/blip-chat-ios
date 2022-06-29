@@ -140,7 +140,7 @@ import Foundation
   }
 
   internal func getAuthTypeConfig() -> String {
-    var json = "{ \"authType\": \"\(self.authConfig.authType.name())\""
+    var json = "{ \"authType\": \\(self.authConfig.authType.name())"
 
     if self.authConfig.authType == .Dev {
       json += ", \"userIdentity\": \"\(self.authConfig.userIdentity!)\", "

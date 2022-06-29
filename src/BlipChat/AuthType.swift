@@ -44,7 +44,7 @@ import Foundation
   func name() -> String {
     switch self {
       case .Guest:
-        return "BlipChat.GUEST"
+        return "BlipChat.GUEST_AUTH"
       case .Dev:
         return "BlipChat.DEV_AUTH"
     }
