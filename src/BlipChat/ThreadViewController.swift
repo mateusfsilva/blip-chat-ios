@@ -70,7 +70,7 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     var sendMessage: String = ""
 
     if options.sendMessage {
-      sendMessage = "blipClient.sendMessage({\"type\":\"text/plain\",\"content\":\"\(self.options.initialMessage ?? "")\"});"
+      sendMessage = "blipClient.sendMessage({ \"type\": \"text/plain\", \"content\": \"\(self.options.initialMessage ?? "")\" });"
     }
 
     html = try! String(contentsOfFile: htmlFile, encoding: String.Encoding.utf8)
