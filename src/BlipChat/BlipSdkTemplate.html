@@ -13,7 +13,8 @@
     <script>
       (function () {
         window.onload = function () {
-          new BlipChat()
+          var blipClient = new BlipChat();
+          blipClient
             .withAppKey('%appKey%')
             .withTarget('sdkTarget')
             .withAuth(%authConfig%)
@@ -22,7 +23,7 @@
             .withCustomCommonUrl('%customCommonUrl%')
             .withCustomMessageMetadata(%customMessageMetadata%)
             .withEventHandler(BlipChat.LOAD_EVENT, function () {
-              %%sendMessage%
+              %sendMessage%
             })
             .build();
         }
