@@ -68,9 +68,19 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     let htmlFile = resourcesBundle!.path(forResource: "BlipSdkTemplate", ofType: "html")!;
 
     var sendMessage: String = ""
+    var sendHiddenMessage: String = ""
+    var sendChatState: String = ""
 
     if options.sendMessage {
       sendMessage = "blipClient.sendMessage({ \"type\": \"text/plain\", \"content\": \"\(self.options.initialMessage ?? "")\" });"
+    }
+
+    if options.sendHiddenMessage {
+      sendHiddenMessage = "blipClient.sendMessage({ \"type\": \"text/plain\", \"content\": \"\(self.options.hiddenMessage ?? "")\", \"metadata\": { \"#blip.hiddenMessage\": true } });"
+    }
+
+    if options.sendChatState {
+      sendChatState = "blipClient.sendMessage({ \"type\": \"application/vnd.lime.chatstate+json\", \"content\": { \"state\": \"\(self.options.chatState ?? "")\" } });"
     }
 
     html = try! String(contentsOfFile: htmlFile, encoding: String.Encoding.utf8)
@@ -82,9 +92,13 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
       .replacingOccurrences(of: Constants.IFRAME_URL_KEY, with: self.options.customCommonUrl ?? Constants.IFRAME_URL)
       .replacingOccurrences(of: Constants.CUSTOM_COMMON_URL_KEY, with: self.options.customCommonUrl ?? "")
       .replacingOccurrences(of: Constants.CUSTOM_MESSAGE_METADATA, with: self.options.customMetadata)
-      .replacingOccurrences(of: Constants.SEND_MESSAGE, with: sendMessage);
+      .replacingOccurrences(of: Constants.SEND_MESSAGE, with: sendMessage)
+      .replacingOccurrences(of: Constants.SEND_HIDDEN_MESSAGE, with: sendHiddenMessage)
+      .replacingOccurrences(of: Constants.SEND_CHAT_STATE, with: sendChatState);
 
+#if DEBUG
     print("BLiP Chat - HTML code \(html)")
+#endif
 
     self.webView.load(URLRequest(url:URL(string:Constants.BLIP_BLANK_PAGE)!))
     baseUrl = URL(string: "https://\(Bundle.main.bundleIdentifier!.lowercased())/")

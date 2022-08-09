@@ -24,6 +24,8 @@
             .withCustomMessageMetadata(%customMessageMetadata%)
             .withEventHandler(BlipChat.LOAD_EVENT, function () {
               %sendMessage%
+              %sendHiddenMessage%
+              %sendChatState%
             })
             .build();
         }

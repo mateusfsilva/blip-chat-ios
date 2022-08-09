@@ -42,11 +42,23 @@ import Foundation
    */
   @objc public var windowTitle: String
 
-  /// Send a initial message when open the chat
+  /// Send a initial message when opening the chat
   @objc public var sendMessage: Bool
 
-  /// Message to send on open the chat
+  /// Message to send on opening the chat
   @objc public var initialMessage: String?
+
+  /// Send a hidden message when opening the chat
+  @objc public var sendHiddenMessage: Bool
+
+  /// Hidden message to send on opening the chat
+  @objc public var hiddenMessage: String?
+
+  /// Send a chat state when opening the chat
+  @objc public var sendChatState: Bool
+
+  /// State to send on opening chat
+  @objc public var chatState: String?
 
   /// Custom metadata to send in every call
   @objc public var customMessageMetadata: [String: String]?
@@ -58,6 +70,8 @@ import Foundation
     self.authConfig = AuthConfig()
     windowTitle = "Blip Chat"
     sendMessage = false
+    sendHiddenMessage = false
+    sendChatState = false
   }
 
   /**
@@ -67,6 +81,8 @@ import Foundation
     self.authConfig = authType
     windowTitle = "Blip Chat"
     sendMessage = false
+    sendHiddenMessage = false
+    sendChatState = false
   }
 
   /**
@@ -78,6 +94,8 @@ import Foundation
     self.account = account
     self.windowTitle = "Blip Chat"
     sendMessage = false
+    sendHiddenMessage = false
+    sendChatState = false
   }
 
   /**
@@ -90,6 +108,8 @@ import Foundation
     self.account = account
     self.windowTitle = windowTitle ?? "Blip Chat"
     sendMessage = false
+    sendHiddenMessage = false
+    sendChatState = false
   }
 
   /**
@@ -115,8 +135,25 @@ import Foundation
     self.customWidgetUrl = customWidgetUrl
     self.windowTitle = windowTitle ?? "Blip Chat"
     sendMessage = false
+    sendHiddenMessage = false
+    sendChatState = false
   }
 
+  /**
+   - Parameter authType: AuthTypeConfig object to define the auth mode for BlipChat
+   - Parameter account: Account object to define user properties
+   - Parameter connectionDataConfig: Custom connection data configuration
+   - Parameter customCommonUrl: Custom url to be used on BLiPChat
+   - Parameter customWidgetUrl: Custom url to fetch BLiPChat widget lib
+   - Parameter windowTitle: Title for BlipChat controller
+   - Parameter sendMessage: Send a initial message when opening the chat
+   - Parameter initialMessage: Message to send on open the chat
+   - Parameter sendHiddenMessage: Send a hidden message when opening the chat
+   - Parameter hiddenMessage: Hidden message to send on open the chat
+   - Parameter sendChatState: Send a chat state when opening the chat
+   - Parameter chatState: State to send on opening chat
+   - Parameter customMessageMetadata: Custom metadata to send in every call
+  */
   @objc public init(
     authType: AuthConfig,
     account: Account?,
@@ -126,6 +163,10 @@ import Foundation
     windowTitle: String?,
     sendMessage: Bool,
     initialMessage: String?,
+    sendHiddenMessage: Bool,
+    hiddenMessage: String?,
+    sendChatState: Bool,
+    chatState: String?,
     customMessageMetadata: [String: String]?
   ) {
     self.authConfig = authType
@@ -136,6 +177,10 @@ import Foundation
     self.windowTitle = windowTitle ?? "Blip Chat"
     self.sendMessage = sendMessage
     self.initialMessage = initialMessage ?? ""
+    self.sendHiddenMessage = sendHiddenMessage
+    self.hiddenMessage = hiddenMessage ?? ""
+    self.sendChatState = sendChatState
+    self.chatState = chatState ?? ""
     self.customMessageMetadata = customMessageMetadata
   }
 

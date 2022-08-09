@@ -21,6 +21,8 @@ internal class Constants{
   public static let CUSTOM_COMMON_URL_KEY = "%customCommonUrl%"
   public static let CONNECTION_DATA_KEY = "%connectionData%"
   public static let SEND_MESSAGE = "%sendMessage%"
+  public static let SEND_HIDDEN_MESSAGE = "%sendHiddenMessage%"
+  public static let SEND_CHAT_STATE = "%sendChatState%"
   public static let CUSTOM_MESSAGE_METADATA = "%customMessageMetadata%"
 
   public static let BLIP_BLANK_PAGE = "BlipBlankPage"
